@@ -3,7 +3,7 @@
 **The single source of truth for everything Madeja.**
 Portable — reference from any project, any environment, any conversation.
 
-> Last consolidated: **2026-04-25** (Vera/Milo persona split clarified — B2B vs B2C distinction made explicit across Quick Facts, Brand Identity, and Restaurant Features)
+> Last consolidated: **2026-04-25** (Vera/Milo persona split clarified — B2B vs B2C distinction made explicit; Milo voice = restaurants only, Milo web chatbot = fashion + restaurants)
 > Maintainer: Giuseppe Tortorici
 > If facts conflict with reality, trust current code/data and update this doc.
 > **Canonical design tokens live in** [madeja_brand.py](../../.claude/skills/canvas-design/madeja_brand.py) — this doc mirrors that file, never overrides it.
@@ -32,8 +32,8 @@ Portable — reference from any project, any environment, any conversation.
 | Field | Value |
 |-------|-------|
 | **Company** | Madeja |
-| **B2B Persona** | **Vera** — AI marketing strategist who speaks to the *business owner* |
-| **B2C Persona** | **Milo** — voice + chat agent who speaks to the owner's *customers* (restaurants only) |
+| **B2B Persona** | **Vera** — AI marketing strategist who speaks to the *business owner* (all verticals) |
+| **B2C Persona** | **Milo** — voice agent (restaurants only) + web chatbot (fashion + restaurants) for the owner's *customers* |
 | **Domain** | madeja.digital |
 | **App** | app.madeja.digital (Lovable frontend) |
 | **Founded** | 2026 (rebranded from FabricAI → TelarAI → Madeja, Feb 2026) |
@@ -73,10 +73,11 @@ Giuseppe is a **bootstrapped, already-profitable technical founder**. The ask is
 
 Madeja deploys **two distinct personas** with different audiences and scopes. **Never conflate them** in any artifact (deck, copy, mockup, email, leaflet).
 
-| Persona | Audience | Role | Surface |
-|---------|----------|------|---------|
-| **Vera** | The *owner* (B2B) | AI marketing strategist | Email `vera@madeja.digital`, in-app chat, Instagram calendar, Google Reviews auto-response, content & strategy generation |
-| **Milo** | The owner's *customers* (B2C) — restaurants only | Voice + chat agent | Vapi voice assistant per restaurant (real ES phone number provisioned at onboarding), 24/7 reservations, SMS confirmation, B2C web chatbot |
+| Persona | Audience | Role | Surface | Verticals |
+|---------|----------|------|---------|-----------|
+| **Vera** | The *owner* (B2B) | AI marketing strategist | `vera@madeja.digital`, in-app chat, Instagram calendar, Google Reviews auto-response, content & strategy generation | Fashion + Restaurants |
+| **Milo — voice** | The owner's *customers* (B2C) | Phone agent for inbound calls | Vapi + Twilio, real ES phone number provisioned per restaurant at onboarding, 24/7 reservations, SMS confirmation | **Restaurants only** |
+| **Milo — web chatbot** | The owner's *customers* (B2C) | Public-facing web chat | Embedded chat widget on the client's site — handles customer inquiries (menu/catalog, availability, lead capture) | **Fashion + Restaurants** |
 
 - Vera works **FOR** Madeja and helps the owner with **THEIR** brand
 - Vera **dispatches Milo** to handle customer-facing channels for restaurant clients
@@ -182,12 +183,17 @@ The textile metaphor governs visual communication:
 | **TikTok Video Creator** | Vertical 9:16 videos with captions | Kling 2.6 + GPT-4.1 |
 | **Email Campaign Sender** | Full email campaigns via Brevo | AI-generated + mass delivery |
 
-#### Restaurant-Exclusive Features (Premium)
+#### Customer-Facing (B2C) Surfaces
+
+| Surface | Persona | Verticals | Description |
+|---------|---------|-----------|-------------|
+| **Voice agent** | Milo | Restaurants only | Phone-based reservations via Vapi + Twilio. 24/7. Real ES phone number per restaurant at onboarding. |
+| **Web chatbot** | Milo | Fashion + Restaurants | Embedded chat widget on the client's site — customer inquiries (catalog/menu, availability, lead capture). Same Milo persona as voice; channel-adapted. |
+
+#### Restaurant-Specific Operational Features (Premium)
 
 | Feature | Persona | Description |
 |---------|---------|-------------|
-| **Milo — Voice Booking Agent** | B2C | Phone-based reservations via Vapi + Twilio. 24/7. Real ES phone number provisioned per restaurant at onboarding. |
-| **Milo — B2C Customer Chatbot** | B2C | Public-facing web chat for customer inquiries (same persona as voice — unified across channels) |
 | **Booking Management** | — | Web + phone booking, SMS confirmations, availability calendar |
 | **Vera — Google Review Auto-Responder** | B2B | AI-drafted responses to Google Business reviews in the owner's tone |
 | **Menu Management API** | — | Full CRUD for menu items, prices, descriptions |

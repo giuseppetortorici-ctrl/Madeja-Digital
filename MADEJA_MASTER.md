@@ -3,7 +3,7 @@
 **The single source of truth for everything Madeja.**
 Portable — reference from any project, any environment, any conversation.
 
-> Last consolidated: **2026-04-24** (palette corrected same day — old blue replaced with current teal `#3DD5D0`)
+> Last consolidated: **2026-04-25** (Vera/Milo persona split clarified — B2B vs B2C distinction made explicit across Quick Facts, Brand Identity, and Restaurant Features)
 > Maintainer: Giuseppe Tortorici
 > If facts conflict with reality, trust current code/data and update this doc.
 > **Canonical design tokens live in** [madeja_brand.py](../../.claude/skills/canvas-design/madeja_brand.py) — this doc mirrors that file, never overrides it.
@@ -32,7 +32,8 @@ Portable — reference from any project, any environment, any conversation.
 | Field | Value |
 |-------|-------|
 | **Company** | Madeja |
-| **AI Assistant** | Vera (AI marketing strategist) |
+| **B2B Persona** | **Vera** — AI marketing strategist who speaks to the *business owner* |
+| **B2C Persona** | **Milo** — voice + chat agent who speaks to the owner's *customers* (restaurants only) |
 | **Domain** | madeja.digital |
 | **App** | app.madeja.digital (Lovable frontend) |
 | **Founded** | 2026 (rebranded from FabricAI → TelarAI → Madeja, Feb 2026) |
@@ -68,11 +69,20 @@ Giuseppe is a **bootstrapped, already-profitable technical founder**. The ask is
 - **Madeja** (Spanish for "skein" — a coil of yarn; metaphor for the woven threads of a marketing system)
 - Rebranded from *TelarAI* (Feb 25, 2026) and before that *FabricAI* (Feb 24, 2026)
 
-### Bot / AI Persona
-- **Vera** — the AI marketing strategist
-- Works **FOR** Madeja, helps users with **THEIR** brand
-- Speaks Spanish (primary) and English
-- Sender identity: **vera@madeja.digital** (Google Workspace)
+### AI Personas — Two Voices, One Brand
+
+Madeja deploys **two distinct personas** with different audiences and scopes. **Never conflate them** in any artifact (deck, copy, mockup, email, leaflet).
+
+| Persona | Audience | Role | Surface |
+|---------|----------|------|---------|
+| **Vera** | The *owner* (B2B) | AI marketing strategist | Email `vera@madeja.digital`, in-app chat, Instagram calendar, Google Reviews auto-response, content & strategy generation |
+| **Milo** | The owner's *customers* (B2C) — restaurants only | Voice + chat agent | Vapi voice assistant per restaurant (real ES phone number provisioned at onboarding), 24/7 reservations, SMS confirmation, B2C web chatbot |
+
+- Vera works **FOR** Madeja and helps the owner with **THEIR** brand
+- Vera **dispatches Milo** to handle customer-facing channels for restaurant clients
+- Both speak Spanish (primary) and English
+- The owner-facing tagline *"Mientras tú estás en servicio, Vera trabaja por ti"* correctly says Vera — Vera is the umbrella brand the owner hires; Milo is one of the agents Vera dispatches.
+- When describing voice/call functionality → Milo. When describing strategy/content/reviews → Vera. **Source artifacts that conflate them (e.g. the Apr 2026 restaurant campaign PDF) must be split correctly when re-used.**
 
 ### Visual Identity
 
@@ -174,13 +184,13 @@ The textile metaphor governs visual communication:
 
 #### Restaurant-Exclusive Features (Premium)
 
-| Feature | Description |
-|---------|-------------|
-| **Voice Booking Agent** | Phone-based reservations via Vapi + Twilio |
-| **Booking Management** | Web + phone booking, SMS confirmations, availability calendar |
-| **Google Review Auto-Responder** | AI-drafted responses to Google Business reviews |
-| **Menu Management API** | Full CRUD for menu items, prices, descriptions |
-| **B2C Customer Chatbot ("Milo")** | Public-facing chat for customer inquiries |
+| Feature | Persona | Description |
+|---------|---------|-------------|
+| **Milo — Voice Booking Agent** | B2C | Phone-based reservations via Vapi + Twilio. 24/7. Real ES phone number provisioned per restaurant at onboarding. |
+| **Milo — B2C Customer Chatbot** | B2C | Public-facing web chat for customer inquiries (same persona as voice — unified across channels) |
+| **Booking Management** | — | Web + phone booking, SMS confirmations, availability calendar |
+| **Vera — Google Review Auto-Responder** | B2B | AI-drafted responses to Google Business reviews in the owner's tone |
+| **Menu Management API** | — | Full CRUD for menu items, prices, descriptions |
 
 ### Always-On Automations (Included)
 

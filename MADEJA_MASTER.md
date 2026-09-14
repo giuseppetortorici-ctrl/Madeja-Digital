@@ -3,7 +3,7 @@
 **The single source of truth for everything Madeja.**
 Portable — reference from any project, any environment, any conversation.
 
-> Last consolidated: **2026-04-25** (Vera/Milo persona split clarified — B2B vs B2C distinction made explicit; Milo voice = restaurants only, Milo web chatbot = fashion + restaurants)
+> Last consolidated: **2026-09-14** (Pricing restructure — Madeja Pro €59 base + Madeja Voice €99 add-on; old 4-tier structure retired)
 > Maintainer: Giuseppe Tortorici
 > If facts conflict with reality, trust current code/data and update this doc.
 > **Canonical design tokens live in** [madeja_brand.py](../../.claude/skills/canvas-design/madeja_brand.py) — this doc mirrors that file, never overrides it.
@@ -42,7 +42,7 @@ Portable — reference from any project, any environment, any conversation.
 | **Stage** | Production, revenue-generating, bootstrapped & profitable |
 | **Capital raised** | €0 (bootstrapped) |
 | **Team size** | 1 (founder) |
-| **Pricing** | €39–349/month (Free tier available) |
+| **Pricing** | €59/month (Pro) + €99/month optional Voice add-on |
 | **Production workflows** | 41 |
 | **Live API endpoints** | 23 |
 | **AI agents** | 14 |
@@ -51,7 +51,7 @@ Portable — reference from any project, any environment, any conversation.
 
 ### Elevator Pitch
 
-> **Madeja gives Spanish SMEs a complete AI marketing department — 14 specialized agents for €39–349/month instead of €5,000–15,000 for the equivalent human team.** Vera, the AI strategist, knows your brand, catalog, and competitors. You get the strategy and content; you just snap the photo and hit publish.
+> **Madeja gives Spanish SMEs a complete AI marketing department — 14 specialized agents for €59/month instead of €5,000–15,000 for the equivalent human team.** Vera, the AI strategist, knows your brand, catalog, and competitors. You get the strategy and content; you just snap the photo and hit publish. Restaurants can add a 24/7 phone booking agent for €99/month.
 
 ### One-Liner (Spanish)
 
@@ -171,9 +171,9 @@ The textile metaphor governs visual communication:
 | **Collection Designer** | Catalog DNA analysis, gap identification, new piece suggestions | Fashion consultant — €3,000/mo |
 
 **Total equivalent hiring cost:** €19,200/month
-**Madeja price:** €39–349/month (**96–99% cost savings**)
+**Madeja price:** €59/month base (**99.7% cost savings**)
 
-#### Creative Production Agents (Pro & Premium)
+#### Creative Production Agents (included)
 
 | Agent | Output | Technology |
 |-------|--------|-----------|
@@ -190,13 +190,14 @@ The textile metaphor governs visual communication:
 | **Voice agent** | Milo | Restaurants only | Phone-based reservations via Vapi + Twilio. 24/7. Real ES phone number per restaurant at onboarding. |
 | **Web chatbot** | Milo | Fashion + Restaurants | Embedded chat widget on the client's site — customer inquiries (catalog/menu, availability, lead capture). Same Milo persona as voice; channel-adapted. |
 
-#### Restaurant-Specific Operational Features (Premium)
+#### Restaurant-Specific Operational Features
 
-| Feature | Persona | Description |
-|---------|---------|-------------|
-| **Booking Management** | — | Web + phone booking, SMS confirmations, availability calendar |
-| **Vera — Google Review Auto-Responder** | B2B | AI-drafted responses to Google Business reviews in the owner's tone |
-| **Menu Management API** | — | Full CRUD for menu items, prices, descriptions |
+| Feature | Plan | Description |
+|---------|------|-------------|
+| **Booking Management (web + sheet)** | Pro | Availability calendar, booking sheet, SMS confirmations via web bookings |
+| **Vera — Google Review Auto-Responder** | Pro | AI-drafted responses to Google Business reviews in the owner's tone |
+| **Menu Management API** | Pro | Full CRUD for menu items, prices, descriptions |
+| **Milo — Voice Booking Agent** | **Voice add-on** | 24/7 phone bookings via ES local Twilio number + Vapi assistant. 300 min included/mo, €0.30/min overage. |
 
 ### Always-On Automations (Included)
 
@@ -224,14 +225,44 @@ trend analysis, competitor deep-dives, market positioning, content strategy, sea
 
 ## 4. Pricing & Plans
 
-| Plan | Price/mo | Agent Calls | Target Client | Key Features |
-|------|----------|-------------|---------------|--------------|
-| **Free** | €0 | 3 | Trial users | All 10 strategy agents, basic reports |
-| **Starter** | €39–49 | 15 | Solo founders | Strategy + content planning |
-| **Pro** | €119–149 | 50 | Growing brands | + Creative production + Email campaigns |
-| **Premium** | €249–349 | 150 | Established businesses | + Voice booking + B2C chatbot + TikTok video |
+**Two-component pricing, decoupled to protect margin.** The base plan is everything you need to run marketing intelligence; the voice add-on is a metered utility for restaurants receiving inbound calls.
 
-**Payment:** Stripe (live, production). No contracts, cancel anytime.
+### Madeja Pro — €59/month
+
+The full marketing department. Same price for every client, every vertical.
+
+**Included:**
+- All 14 AI agents (strategy + creative production)
+- Intelligence Dashboard with peer benchmarking
+- Weekly performance digest (Monday 9AM)
+- Milo web chatbot (embeddable, restaurants + fashion)
+- Booking management (web + sheet + SMS confirmations)
+- Menu / catalog management
+- Vera — Google Review Auto-Responder
+- Weekly research reports (PDF)
+- Multi-channel content calendar
+- No feature gating, no agent-call limits
+
+### Madeja Voice — €99/month *(add-on, restaurants only)*
+
+Requires an active Madeja Pro subscription. Available only for restaurant clients.
+
+**Included:**
+- Dedicated ES local phone number (Twilio)
+- Milo voice agent (Vapi) — 24/7 inbound booking + FAQ
+- **300 voice minutes/month included**
+- SMS booking confirmations
+- Overage: **€0.30/minute** beyond 300 min
+
+**Why priced separately:** Voice runs €0.14–0.20/min all-in (Vapi + STT + LLM + TTS + Twilio ES). Bundling it into the base plan would sink margin — the split keeps Pro at ~85% gross margin and prices Voice honestly against usage.
+
+### Old 4-tier structure — retired
+
+The previous Free / Starter (€39–49) / Pro (€119–149) / Premium (€249–349) tiers were built to feature-gate a content-creation tool that no longer exists. Retired. Any surviving references in code (`Code: Check Limit`, `remaining_uses`, Pro/Premium filters) are dead paths pending cleanup.
+
+### Payment
+
+Stripe (currently deactivated in code, ready to reactivate). Direct-sales + manual onboarding during early access & capstone demo — everyone who onboards gets full access automatically. No contracts, cancel anytime once billing is live.
 
 ---
 
@@ -240,24 +271,26 @@ trend analysis, competitor deep-dives, market positioning, content strategy, sea
 ### Revenue Streams
 
 1. **Primary — Monthly SaaS subscriptions (MRR)**
-   - Average revenue per account (ARPA): ~€120/month
-   - Target: 100 paying clients by Q4 2026 = **€12,000 MRR**
-2. **Secondary — Digital products** (lead generation + passive income)
+   - Pro: €59/month · Voice add-on: €99/month (restaurants only, ~40% attach expected)
+   - Blended ARPA: **~€99/month**
+   - Target: 100 paying clients by Q4 2026 = **~€9,900 MRR**
+2. **Secondary — Voice overage** (metered, restaurants that exceed 300 min)
+   - €0.30/min beyond bundle · thin margin (~50%) but expands with client volume
+3. **Tertiary — Digital products & white-label**
    - PDF guides €12–27, prompt packs €15–47, mini-courses €47–97 (Q3 2026)
-3. **Tertiary — Enterprise / white-label**
    - White-label Madeja for agencies, custom verticals, API access
 
 ### Unit Economics
 
-| Metric | Value |
-|--------|-------|
-| Customer Acquisition Cost (CAC) | €30–50 (organic + cold outreach) |
-| Monthly ARPA | ~€120 |
-| Gross Margin | ~85% |
-| LTV (12-month) | ~€1,440 |
-| LTV/CAC Ratio | 29:1–48:1 |
-| Payback Period | <1 month |
-| Monthly infra cost per client | €15–20 |
+| Metric | Pro only | Pro + Voice |
+|--------|---------:|------------:|
+| Monthly revenue | €59 | €158 |
+| Monthly variable cost | €8–12 | €95–110 (voice at 300 min budget) |
+| Gross margin | **~85%** | **~35%** at bundle, ~50% on overage |
+| CAC | €30–50 | €30–50 |
+| LTV (12-mo, 5% churn) | ~€708 | ~€1,896 |
+| LTV/CAC | 14:1–24:1 | 38:1–63:1 |
+| Payback | <1 month | <1 month |
 
 ### Cost Structure (Monthly Fixed)
 
@@ -268,25 +301,27 @@ trend analysis, competitor deep-dives, market positioning, content strategy, sea
 | OpenAI (images, GPT) | Variable — €0.05–0.50/asset |
 | KIE.AI (video) | Variable — €0.10–0.30/video |
 | Brevo (email, 10K/mo) | €25 |
-| Twilio (SMS) | ~€0.05/SMS |
-| Vapi (voice) | ~€0.10–0.30/call |
 | Google Workspace | €6 |
 | Firecrawl (scraping) | €19 |
-| Stripe fees | 1.5% + €0.25/tx |
-| **Total fixed** | **~€120/month** |
-| **Variable per client** | **~€15–20/month** |
+| Apify (scraping) | ~€24 |
+| Stripe fees (when active) | 1.5% + €0.25/tx |
+| **Total fixed** | **~€125/month** |
+| **Variable per Pro client** | **~€8–12/month** |
+| **Variable per Voice add-on** | **€0.14–0.20/min** (Vapi + STT + LLM + TTS + Twilio ES) + €1–6/mo number rental |
 
-**Break-even:** 2 Starter clients OR 1 Pro client covers all fixed costs.
+**Break-even:** 3 Pro clients (or 2 Pro + 1 Voice) covers all fixed infrastructure.
 
 ### ROI Projections
 
-| Horizon | Clients | ARPA | MRR | ARR | Monthly Profit | Gross Margin |
-|---------|---------|------|------|------|----------------|--------------|
-| 6 mo (conservative) | 30 | €100 | €3,000 | €36,000 | €2,400 | 80% |
-| 12 mo (moderate) | 100 | €120 | €12,000 | €144,000 | €10,000 | 83% |
-| 18 mo (aggressive) | 300 | €140 | €42,000 | €504,000 | €36,000 | 86% |
+Assumes 40% of clients attach the Voice add-on → blended ARPA ~€99/month.
 
-Assumptions: 5% monthly churn, 70% Starter/Pro + 20% Premium + 10% Free, organic-only growth.
+| Horizon | Clients | Blended ARPA | MRR | ARR | Monthly Profit | Gross Margin |
+|---------|--------:|-------------:|-----:|-----:|---------------:|-------------:|
+| 6 mo (conservative) | 30 | €90 | €2,700 | €32,400 | €1,900 | 70% |
+| 12 mo (moderate) | 100 | €99 | €9,900 | €118,800 | €7,200 | 72% |
+| 18 mo (aggressive) | 300 | €105 | €31,500 | €378,000 | €23,600 | 75% |
+
+Assumptions: 5% monthly churn, 100% paid (no free tier), ~40% voice attach on restaurants, organic-only growth.
 
 ### Client ROI
 
@@ -296,10 +331,11 @@ Assumptions: 5% monthly churn, 70% Starter/Pro + 20% Premium + 10% Free, organic
 | Content calendar | €1,200/mo CM | Included |
 | Copywriting | €1,500/mo freelancer | Included |
 | Competitor monitoring | €3,000/mo agency | Included |
-| Email campaigns | €500/mo tool + specialist | Included (Pro+) |
-| Booking system | €100/mo + staff | Included (Premium) |
+| Email campaigns | €500/mo tool + specialist | Included |
+| Booking system (web) | €100/mo + staff | Included |
+| 24/7 phone booking agent | €800–1,500/mo (part-time staff) | +€99 Voice add-on |
 | Time investment | 20+ hrs/week | 30 min/week |
-| **Total monthly value** | **€8,300+** | **€39–349** |
+| **Total monthly value** | **€8,300–9,800+** | **€59 (or €158 with Voice)** |
 
 **Client payback: immediate** — first agent call delivers actionable value.
 
@@ -473,7 +509,7 @@ Free Registration (0 friction, no credit card)
     ↓
 Nurture Sequence (Day 1 / 3 / 7 automated emails)
     ↓
-Upgrade to Starter / Pro / Premium (Stripe)
+Upgrade to Madeja Pro (+ optional Voice add-on for restaurants) via Stripe
     ↓
 Onboarding (auto: scrape + Drive + Notion)
     ↓
@@ -537,8 +573,8 @@ Retention (Weekly Digest — continuous value)
 
 | Product | Build Time | Price | Target |
 |---------|-----------|-------|--------|
-| Google Review Auto-Responder | DONE | Included Pro/Premium | All clients |
-| Booking Confirmation Bot | BUILT | Included Starter+ | Restaurants w/ Calendar |
+| Google Review Auto-Responder | DONE | Included in Pro | All clients |
+| Booking Confirmation Bot | BUILT | Included in Pro | Restaurants w/ Calendar |
 | Cold Outreach Personalization | 1 day | €0.50–2/prospect or €299/mo | B2B services |
 | AI Support Chatbot (RAG) | 3–5 days | Setup €500–2,000 + €99–299/mo | Any vertical |
 | Hospitality Marketing Suite | 1–2 weeks | €49–249/mo | Hotels, restaurants |

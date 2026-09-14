@@ -32,8 +32,8 @@ Portable — reference from any project, any environment, any conversation.
 | Field | Value |
 |-------|-------|
 | **Company** | Madeja |
-| **B2B Persona** | **Vera** — AI marketing strategist who speaks to the *business owner* (all verticals) |
-| **B2C Persona** | **Milo** — voice agent (restaurants only) + web chatbot (fashion + restaurants) for the owner's *customers* |
+| **B2B Persona** | **Vera** — AI reputation assistant who speaks to the *restaurant owner* (weekly report, review auto-response) |
+| **B2C Persona** | **Milo** — voice agent (Vapi + Twilio) + web chatbot for the owner's *customers* (24/7 bookings + FAQ) |
 | **Domain** | madeja.digital |
 | **App** | app.madeja.digital (Lovable frontend) |
 | **Founded** | 2026 (rebranded from FabricAI → TelarAI → Madeja, Feb 2026) |
@@ -43,19 +43,19 @@ Portable — reference from any project, any environment, any conversation.
 | **Capital raised** | €0 (bootstrapped) |
 | **Team size** | 1 (founder) |
 | **Pricing** | €59/month (Pro) + €99/month optional Voice add-on |
-| **Production workflows** | 41 |
-| **Live API endpoints** | 23 |
-| **AI agents** | 14 |
-| **Verticals live** | 2 (Fashion, Restaurant) |
-| **Target market size** | 300,000+ SMEs in Spain |
+| **Active workflows** | ~31 (post Sep-14 simplification) |
+| **Live API endpoints** | ~15 (restaurant ops + Lovable infra) |
+| **AI personas** | 2 (Vera B2B, Milo B2C) |
+| **Verticals live** | 1 (Restaurants) — Fashion vertical deactivated Sep 14 2026 |
+| **Target market size** | ~80,000 restaurants in Spain |
 
 ### Elevator Pitch
 
-> **Madeja gives Spanish SMEs a complete AI marketing department — 14 specialized agents for €59/month instead of €5,000–15,000 for the equivalent human team.** Vera, the AI strategist, knows your brand, catalog, and competitors. You get the strategy and content; you just snap the photo and hit publish. Restaurants can add a 24/7 phone booking agent for €99/month.
+> **Madeja is the reputation and booking operations platform for Spanish restaurants.** €59/month covers a live review-intelligence dashboard, weekly branded PDF report, automatic responses to Google/TripAdvisor/TheFork/ElTenedor reviews in the owner's tone, a booking sheet with SMS confirmations, and a Milo web chatbot for customer FAQs. Add Madeja Voice at €99/month and Milo answers your phone 24/7 with 300 booking minutes included.
 
 ### One-Liner (Spanish)
 
-> *"Un departamento de marketing completo en bandeja de plata — tú solo sacas la foto y le das a enviar."*
+> *"Mientras tú estás en servicio, Madeja lleva tu reputación y coge las reservas."*
 
 ### Founder Framing (use for pitches)
 
@@ -66,24 +66,24 @@ Giuseppe is a **bootstrapped, already-profitable technical founder**. The ask is
 ## 2. Brand Identity
 
 ### Brand Name
-- **Madeja** (Spanish for "skein" — a coil of yarn; metaphor for the woven threads of a marketing system)
+- **Madeja** (Spanish for "skein" — a coil of yarn; metaphor for the woven threads of a restaurant's reputation and operations)
 - Rebranded from *TelarAI* (Feb 25, 2026) and before that *FabricAI* (Feb 24, 2026)
 
 ### AI Personas — Two Voices, One Brand
 
 Madeja deploys **two distinct personas** with different audiences and scopes. **Never conflate them** in any artifact (deck, copy, mockup, email, leaflet).
 
-| Persona | Audience | Role | Surface | Verticals |
-|---------|----------|------|---------|-----------|
-| **Vera** | The *owner* (B2B) | AI marketing strategist | `vera@madeja.digital`, in-app chat, Instagram calendar, Google Reviews auto-response, content & strategy generation | Fashion + Restaurants |
-| **Milo — voice** | The owner's *customers* (B2C) | Phone agent for inbound calls | Vapi + Twilio, real ES phone number provisioned per restaurant at onboarding, 24/7 reservations, SMS confirmation | **Restaurants only** |
-| **Milo — web chatbot** | The owner's *customers* (B2C) | Public-facing web chat | Embedded chat widget on the client's site — handles customer inquiries (menu/catalog, availability, lead capture) | **Fashion + Restaurants** |
+| Persona | Audience | Role | Surface |
+|---------|----------|------|---------|
+| **Vera** | The *owner* (B2B) | AI reputation assistant | `vera@madeja.digital`, weekly branded PDF report, Google/TripAdvisor/TheFork review auto-responses in the owner's tone, reputation alerts |
+| **Milo — voice** | The owner's *customers* (B2C) | Phone agent for inbound bookings | Vapi + Twilio, dedicated ES phone number per restaurant, 24/7 reservations + FAQ + SMS confirmations |
+| **Milo — web chatbot** | The owner's *customers* (B2C) | Public-facing web chat | Embedded chat widget on the restaurant's site — menu, hours, reservations, booking capture |
 
-- Vera works **FOR** Madeja and helps the owner with **THEIR** brand
-- Vera **dispatches Milo** to handle customer-facing channels for restaurant clients
+- Vera works **FOR** Madeja and helps the owner keep their reputation clean and their inbox quiet
+- Vera **dispatches Milo** to handle customer-facing channels (voice + web chat)
 - Both speak Spanish (primary) and English
-- The owner-facing tagline *"Mientras tú estás en servicio, Vera trabaja por ti"* correctly says Vera — Vera is the umbrella brand the owner hires; Milo is one of the agents Vera dispatches.
-- When describing voice/call functionality → Milo. When describing strategy/content/reviews → Vera. **Source artifacts that conflate them (e.g. the Apr 2026 restaurant campaign PDF) must be split correctly when re-used.**
+- The owner-facing tagline *"Mientras tú estás en servicio, Vera trabaja por ti"* — Vera is the umbrella brand the owner hires; Milo is the customer-facing agent Vera dispatches.
+- When describing voice/call/chat → Milo. When describing reviews, digest, and owner insights → Vera.
 
 ### Visual Identity
 
@@ -142,7 +142,7 @@ The textile metaphor governs visual communication:
 - **Spanish-first** — built for Spanish business culture, not a US translation
 - **Strategist, not tool** — Vera is a thinking partner, not a generic AI
 - **"Brain, not hands"** — delivers strategy; client executes (photos, posting)
-- **No AI product photography** — fashion brands need authentic images; AI product visuals hurt credibility
+- **No AI content generation** — Madeja no longer produces marketing content (retired Sep 2026); focus is review intelligence + booking ops
 - **No Virtual Try-On (VTO)** — exists in Moda Madrid B2C demo but NOT part of Madeja platform. Do not present as a Madeja feature.
 
 ---
@@ -151,97 +151,68 @@ The textile metaphor governs visual communication:
 
 ### Core Insight
 
-**80/20 split:** Vera provides **strategy and content** (80%); the client provides **execution** (20% — photos, publishing). Client invests ~30 minutes/week for output equivalent to a full marketing team.
+Restaurant owners already do this work — checking reviews every morning, calling back missed bookings, replying to complaints between services. Madeja automates the loop end-to-end: reviews are collected, ranked, summarized, and answered; bookings are captured 24/7 on web or phone; the owner reads one weekly PDF instead of eleven browser tabs. Client invests ~5 minutes/day, gets the output of a part-time reputation manager plus a night receptionist.
 
-### 14 AI Agents
+### Madeja Pro — What's Included (€59/month)
 
-#### Strategy Agents (All Plans)
+#### Review Intelligence
 
-| Agent | What It Delivers | Human Equivalent Cost |
-|-------|-----------------|------------------------|
-| **Trend Scout** | Weekly trend reports, seasonal analysis, emerging aesthetics | Market research analyst — €2,000/mo |
-| **Copywriter** | Social posts, product descriptions, captions in brand voice | Copywriter — €1,500/mo |
-| **Visual Creator** | Mood boards, color palettes, visual direction | Art director — €2,500/mo |
-| **Content Calendar** | Monthly posting schedule — themes, copy, hashtags, timing | Social media manager — €1,200/mo |
-| **Competitor Analyst** | Auto monitoring of competitor products, pricing, strategy | Competitive intelligence — €3,000/mo |
-| **Product Describer** | SEO-optimized product narratives from catalog data | E-commerce specialist — €1,500/mo |
-| **Community Manager** | Engagement strategies, comment templates, growth tactics | Community manager — €1,200/mo |
-| **Email Strategist** | Campaign planning, subject lines, nurture sequences | Email marketing specialist — €1,800/mo |
-| **Blog Writer** | Long-form SEO articles positioning brand as industry voice | Content writer — €1,500/mo |
-| **Collection Designer** | Catalog DNA analysis, gap identification, new piece suggestions | Fashion consultant — €3,000/mo |
+| Capability | Description |
+|------------|-------------|
+| **Live dashboard** | Weekly refreshed scores across Google, TripAdvisor, TheFork, ElTenedor. Trend arrows, sentiment breakdown, most-mentioned dishes and complaints. |
+| **Barrio benchmarking** | Compare your rating and review velocity against the top N restaurants in your Madrid barrio. Percentile ranking updated weekly. |
+| **Weekly branded PDF report** | Delivered Monday 9AM to the owner. Executive summary, sentiment shift, competitor snapshot, action items — all in Madeja brand. |
+| **Reputation monitor** | Daily 8AM silent scan across all review platforms. Alerts only when negative or new reviews appear — no digest fatigue. |
+| **Vera — auto-response** | AI drafts + posts replies to Google Business Profile reviews in the owner's tone every 2h. Owner can review-and-approve or full-auto. |
 
-**Total equivalent hiring cost:** €19,200/month
-**Madeja price:** €59/month base (**99.7% cost savings**)
+#### Bookings & Customer Ops
 
-#### Creative Production Agents (included)
+| Capability | Description |
+|------------|-------------|
+| **Booking sheet** | Google Sheet backend, availability calendar, one-click confirmations, SMS to the customer via Twilio. |
+| **Menu management** | Full CRUD API on menu items, prices, allergens, descriptions — updated once, propagated to chatbot + voice agent + review responses. |
+| **Milo web chatbot** | Embeddable widget on the restaurant's site. Answers menu / hours / reservations / FAQ in Spanish or English. Captures bookings without staff involvement. |
 
-| Agent | Output | Technology |
-|-------|--------|-----------|
-| **Instagram Post Creator** | Professional image + caption + hashtags | gpt-image-1 + GPT-4.1 |
-| **Video Creator** | Brand videos from text prompts | Kling AI via KIE.AI |
-| **Product Video Creator** | Enhanced product showcase videos | gpt-image-1 + Kling |
-| **TikTok Video Creator** | Vertical 9:16 videos with captions | Kling 2.6 + GPT-4.1 |
-| **Email Campaign Sender** | Full email campaigns via Brevo | AI-generated + mass delivery |
+### Madeja Voice — What's Included (€99/month add-on)
 
-#### Customer-Facing (B2C) Surfaces
+| Capability | Description |
+|------------|-------------|
+| **Dedicated ES phone number** | Local Spanish Twilio number provisioned per restaurant at onboarding. |
+| **Milo voice agent** | Vapi-powered 24/7 phone answering — takes bookings, quotes hours, handles menu questions, escalates edge cases. |
+| **300 voice minutes/month included** | Overage billed at **€0.30/minute**. |
+| **SMS booking confirmations** | Customer receives confirmation text on booking; owner sees the booking land in the sheet. |
 
-| Surface | Persona | Verticals | Description |
-|---------|---------|-----------|-------------|
-| **Voice agent** | Milo | Restaurants only | Phone-based reservations via Vapi + Twilio. 24/7. Real ES phone number per restaurant at onboarding. |
-| **Web chatbot** | Milo | Fashion + Restaurants | Embedded chat widget on the client's site — customer inquiries (catalog/menu, availability, lead capture). Same Milo persona as voice; channel-adapted. |
+### One-Click Onboarding
 
-#### Restaurant-Specific Operational Features
-
-| Feature | Plan | Description |
-|---------|------|-------------|
-| **Booking Management (web + sheet)** | Pro | Availability calendar, booking sheet, SMS confirmations via web bookings |
-| **Vera — Google Review Auto-Responder** | Pro | AI-drafted responses to Google Business reviews in the owner's tone |
-| **Menu Management API** | Pro | Full CRUD for menu items, prices, descriptions |
-| **Milo — Voice Booking Agent** | **Voice add-on** | 24/7 phone bookings via ES local Twilio number + Vapi assistant. 300 min included/mo, €0.30/min overage. |
-
-### Always-On Automations (Included)
-
-| Automation | Benefit |
-|-----------|---------|
-| **Catalog Intelligence** | One-time scrape at onboarding, then agents read from Google Sheet |
-| **Lead Nurture** | Automatic Day 1/3/7 onboarding emails for new signups |
-| **Weekly Performance Digest** | Monday 9AM per-company AI digest email |
-| **Google Review Auto-Responder** | AI-drafted review responses (restaurants, every 2h) |
-| **Reputation Monitor** | Daily 8AM reputation scan across review platforms |
-
-### Research Reports (Async PDF)
-
-5 on-demand report types delivered as branded PDFs:
-trend analysis, competitor deep-dives, market positioning, content strategy, seasonal planning
+New restaurant → Notion CRM entry + Google Sheet (menu + bookings) auto-scaffolded + website/Instagram scraped into brand context + Google Business Profile linked + (if Voice) Vapi assistant + Twilio number provisioned. Zero manual setup, no forms to fill in the app.
 
 ### What Madeja Does NOT Do
 
-- No AI-generated product photography (authenticity matters for fashion)
-- No Virtual Try-On (VTO) — exists in separate demo, not platform
-- No standalone text-to-image or text-to-video generators for clients
-- No DIY automation platform (not Zapier/n8n for users — it's a finished product)
+- No marketing content generation (no post scheduling, no ad copy, no image/video creation — the old "14 agents" suite was retired Sep 2026 with the pivot to review intelligence)
+- No fashion vertical — that vertical was deactivated Sep 14 2026 to focus the platform
+- No standalone chatbot / voice product for verticals other than restaurants
+- No DIY automation platform (it's a finished product, not Zapier/n8n for end users)
 
 ---
 
 ## 4. Pricing & Plans
 
-**Two-component pricing, decoupled to protect margin.** The base plan is everything you need to run marketing intelligence; the voice add-on is a metered utility for restaurants receiving inbound calls.
+**Two-component pricing, decoupled to protect margin.** The base plan covers reputation + booking operations; the voice add-on is a metered utility for restaurants that want 24/7 phone answering.
 
 ### Madeja Pro — €59/month
 
-The full marketing department. Same price for every client, every vertical.
+Same price for every restaurant. No feature gating.
 
 **Included:**
-- All 14 AI agents (strategy + creative production)
-- Intelligence Dashboard with peer benchmarking
-- Weekly performance digest (Monday 9AM)
-- Milo web chatbot (embeddable, restaurants + fashion)
-- Booking management (web + sheet + SMS confirmations)
-- Menu / catalog management
-- Vera — Google Review Auto-Responder
-- Weekly research reports (PDF)
-- Multi-channel content calendar
-- No feature gating, no agent-call limits
+- Review Intelligence Dashboard with barrio-level benchmarking
+- Weekly branded PDF report (Monday 9AM)
+- Vera — Google Business Profile review auto-responder in owner's tone
+- Reputation Monitor (TripAdvisor / TheFork / ElTenedor, daily 8AM)
+- Milo web chatbot — customer FAQ + menu + booking widget
+- Booking management (Google Sheet backend + SMS confirmations via Twilio)
+- Menu / catalog management API
+- One-click onboarding (Notion CRM + sheet + scrape + GBP link)
+- No usage limits
 
 ### Madeja Voice — €99/month *(add-on, restaurants only)*
 
@@ -326,18 +297,17 @@ Assumptions: 5% monthly churn, 100% paid (no free tier), ~40% voice attach on re
 ### Client ROI
 
 | Capability | Without Madeja | With Madeja |
-|-----------|----------------|-------------|
-| Marketing strategy | €2,000/mo consultant | Included |
-| Content calendar | €1,200/mo CM | Included |
-| Copywriting | €1,500/mo freelancer | Included |
-| Competitor monitoring | €3,000/mo agency | Included |
-| Email campaigns | €500/mo tool + specialist | Included |
-| Booking system (web) | €100/mo + staff | Included |
-| 24/7 phone booking agent | €800–1,500/mo (part-time staff) | +€99 Voice add-on |
-| Time investment | 20+ hrs/week | 30 min/week |
-| **Total monthly value** | **€8,300–9,800+** | **€59 (or €158 with Voice)** |
+|------------|----------------|-------------|
+| Daily manual review monitoring | 30 min/day owner time | Automated dashboard + PDF |
+| Replying to Google reviews | 10 min per review, inconsistent tone | Auto-response in owner's tone |
+| Reputation monitor (TripAdvisor, TheFork, ElTenedor) | €80–150/mo tools (Revinate/ReviewPro) | Included |
+| Web booking system | €50–100/mo (OpenTable/Covermanager) | Included |
+| Web chatbot for customers | €40–80/mo (Zendesk/Intercom) | Included |
+| Part-time reservation staff (nights, weekends) | €800–1,500/mo | +€99 Voice add-on |
+| Weekly performance report | 2 hrs manual per week or unavailable | Branded PDF, delivered Mon 9AM |
+| **Total monthly value** | **€1,000–1,800+** in tools & time | **€59 (or €158 with Voice)** |
 
-**Client payback: immediate** — first agent call delivers actionable value.
+**Client payback: immediate** — first negative review auto-answered pays back the month.
 
 ---
 
@@ -384,7 +354,7 @@ Assumptions: 5% monthly churn, 100% paid (no free tier), ~40% voice attach on re
 ### Key Technical Differentiators
 
 1. **Multi-tenant by design** — Each company gets isolated data (Notion row, Google Sheet, Pinecone namespace). No cross-client leakage.
-2. **Vertical-aware AI** — System prompts dynamically assemble brand context, catalog data, vertical-specific instructions, and competitor info before every LLM call. Fashion and restaurant agents speak different languages because they ARE different agents.
+2. **Restaurant-specialized AI** — System prompts dynamically assemble brand context, menu data, review history, and barrio competitor data before every LLM call. Vera and Milo are shaped by real Spanish restaurant operational patterns, not generic templates.
 3. **Four-tier execution engine** — Chat Agent routes intelligently:
    - **Fast** (<5s): simple queries
    - **Conversational** (~15s): context-dependent strategy questions
@@ -402,7 +372,7 @@ Assumptions: 5% monthly churn, 100% paid (no free tier), ~40% voice attach on re
 | API endpoints | 23 |
 | Active credentials | 18 |
 | AI models used | 5 (Claude Sonnet 4.6, GPT-4.1, GPT-4o, gpt-image-1, Kling 2.6) |
-| Supported verticals | 2 (Fashion, Restaurant) |
+| Supported verticals | 1 (Restaurant) |
 | n8n version | 2.35.2 |
 | n8n instance | giuseppetortorici.app.n8n.cloud |
 
@@ -426,52 +396,52 @@ Assumptions: 5% monthly churn, 100% paid (no free tier), ~40% voice attach on re
 
 ### The Problem
 
-Spanish PYMEs face a brutal marketing choice:
+Spanish restaurant owners have three real jobs at once — cooking, running service, and running the business online. The online piece is what breaks first:
 
-| Option | Monthly Cost | Reality |
-|--------|-------------|---------|
-| In-house marketing team | €5,000–15,000 | Unaffordable for 95% of SMEs |
-| Marketing agency | €1,500–4,000 | Generic, slow, lock-in contracts |
-| Freelance specialists | €800–2,500 each | Need 3–5 of them, coordination nightmare |
-| DIY with ChatGPT | €20 | No brand context, no strategy, no execution |
-| Do nothing | €0 | Invisible online, losing daily |
+| Task | Reality Today | Cost / Consequence |
+|------|---------------|--------------------|
+| Monitoring reviews daily | Checked on phone during breaks, forgotten by shift's end | Late responses = lost credibility |
+| Responding to Google reviews | Copy-pasted templates or nothing | Damage to rating over months |
+| Cross-platform reputation (TripAdvisor, TheFork, ElTenedor) | Rarely checked | Prospective customers see stale info |
+| Answering the phone during peak hours | Missed | Missed bookings = missed revenue |
+| Understanding how you rank vs the barrio | Impossible without tooling | No signal, no strategy |
+| Existing tools (Revinate/ReviewPro) | Enterprise pricing, English-first, no ES review platforms | Priced for hotel chains, not neighborhood restaurants |
 
-**Result:** 80% of Spanish fashion and restaurant SMEs have no coherent marketing strategy.
+**Result:** small-and-mid restaurants operate blind on reputation and lose bookings to the phone every night.
 
 ### Market Size
 
-- **~15,000–20,000** fashion PYMEs in Spain
+- **~15,000** restaurants in Madrid
 - **~80,000** restaurants in Spain
-- **300,000+** total addressable SMEs across all target verticals
-- **€3.6B** annual marketing services spend by Spanish SMEs
+- **~€100–200 median monthly spend** on reservation + review tools per restaurant (fragmented)
+- **Whitespace:** no integrated ES-first reputation + booking + voice product exists at Madeja's price point
 
 ### Direct Competitors
 
 | Competitor | What They Do | Madeja Advantage |
 |-----------|-------------|------------------|
-| **Metricool** | Social scheduling + analytics | No AI strategy, no content creation, no brand context |
-| **Hootsuite / Buffer** | Social media management | Scheduling only |
-| **Copy.ai / Jasper** | AI copywriting | Generic output, no brand context, no catalog |
-| **ChatGPT / Claude (direct)** | General AI chat | No memory, no catalog, no multi-agent orchestration |
-| **Marketing agencies** | Full-service | 10–50× more expensive, slower, lock-in |
-| **Freelance marketers** | Specialist hire | Need 3–5, coordination overhead |
+| **Revinate / ReviewPro** | Hospitality review intelligence | Enterprise pricing (€300+/mo), English-first, no barrio benchmarking, no ES voice agent |
+| **Covermanager / OpenTable** | Restaurant booking systems | Booking only — no review ops, no AI response, no voice agent |
+| **Trivec / Bookline** | Voice AI for restaurants | Voice only — no reputation stack, no dashboard, no benchmarking |
+| **Google Business Profile alerts** | Free review notifications from Google | No response drafting, no cross-platform view, no benchmarking |
+| **In-house junior + agency** | Manual monitoring + reply drafting | €800–1,500/mo staff + delayed responses, no 24/7 coverage |
 
 ### Indirect Competitors
 
 | Category | Players | Why Madeja Wins |
 |----------|---------|------------------|
-| Automation platforms | Zapier, Make, n8n | Tools, not solutions |
-| CRM with AI | HubSpot, Salesforce | Enterprise pricing (€800+/mo) |
-| Vertical SaaS | Toast, Shopify apps | Single-function, no marketing strategy |
+| Automation platforms | Zapier, Make, n8n | Tools, not solutions — restaurants don't build |
+| Chatbot builders | Intercom, Zendesk | Generic — no menu/booking context, no ES review integration |
+| POS + booking bundles | Toast, TheFork | Booking only, no reputation ops |
 
 ### Competitive Moat
 
-1. **Vertical depth** — sector-specific prompts trained on fashion/restaurant data patterns
-2. **Integrated system** — not just copywriting OR scheduling OR analytics — all orchestrated
-3. **Brand context persistence** — Vera remembers brand colors, catalog, competitors, voice across every interaction
-4. **Spanish-first** — built for the Spanish market, in Spanish, understanding Spanish business culture
-5. **Asymmetric switching cost** — easy for clients (free tier), hard for competitors (41-workflow orchestration)
-6. **Network effects** — more clients per vertical = better trend data, better benchmarks
+1. **Barrio benchmarking data** — 3–6 months of scraping across Madrid barrios is hard to replicate; every week our advantage widens
+2. **Owner-tone auto-response** — reply drafts learn each restaurant's voice; competitors ship generic templates
+3. **End-to-end integration** — reviews + bookings + voice in one system; nobody else covers all three for restaurants
+4. **Spanish-first** — built for Spanish market, Spanish review platforms (TheFork, ElTenedor), Spanish restaurant culture
+5. **Restaurant-specialized** — not "hospitality," not "SME general" — sharp focus on the vertical
+6. **Asymmetric switching cost** — swapping means rebuilding review context, booking calendar, and voice agent
 
 ---
 
@@ -481,70 +451,58 @@ Spanish PYMEs face a brutal marketing choice:
 
 | Channel | Strategy | Status |
 |---------|----------|--------|
-| **Cold outreach** | Daily automated emails to restaurants via Google Search + Firecrawl | Active — ~70 leads/week |
-| **LinkedIn prospecting** | Weekly automated scrape of restaurant owners | Active |
-| **Instagram** | @gius.tortorici — AI marketing tips, Vera demos | 2.6K followers, growing |
-| **YouTube** | Long-form Vera avatar videos, podcast episodes | Weekly |
-| **Digital products** | PDF guides on Gumroad — funnel to signups | Live (€12/guide) |
-| **Word of mouth** | Existing clients refer others | Organic |
+| **Direct sales — D2D Madrid barrios** | Founder walks target barrios with tablet demo of live dashboard | Active — primary channel |
+| **Pizza Rosie live demo** | Show a prospect their neighbor's real dashboard, ask if they want theirs | Live case study |
+| **LinkedIn prospecting** | Weekly automated scrape of restaurant owners in target barrios | Active |
+| **Word of mouth** | Existing clients refer neighbor restaurants | Organic |
 
-### Planned Channels (Q3–Q4 2026)
+### Planned Channels (Q4 2026)
 
-- Partnerships with Spanish business associations (CECOT, PIMEC)
-- Webinars — "AI Marketing for Your PYME in 30 min/week"
+- Distribuidor partnerships (POS resellers, hospitality consultants — see Sales Playbook 90-day memory)
 - Referral program — existing clients earn free months
-- SEO blog on madeja.digital
-- WhatsApp Business outreach (Evolution API)
+- SEO blog on madeja.digital targeting restaurant-owner search intent
+- WhatsApp Business outreach
 
 ### Sales Funnel
 
 ```
-Discovery (Instagram / YouTube / Cold Email / LinkedIn)
+Discovery (D2D visit / LinkedIn / Referral)
     ↓
-Landing Page (madeja.digital)
+Live dashboard demo — prospect sees their real reviews, sentiment, and barrio ranking
     ↓
-Free Registration (0 friction, no credit card)
+Onboarding (auto: sheet + scrape + GBP link + Notion CRM)
     ↓
-3 Free Agent Calls (experience value)
+First weekly PDF report delivered Monday 9AM — value proven within 7 days
     ↓
-Nurture Sequence (Day 1 / 3 / 7 automated emails)
+Optional: Voice add-on activated for restaurants with high call volume
     ↓
-Upgrade to Madeja Pro (+ optional Voice add-on for restaurants) via Stripe
-    ↓
-Onboarding (auto: scrape + Drive + Notion)
-    ↓
-Weekly Value Delivery (calendar, reports, campaigns)
-    ↓
-Retention (Weekly Digest — continuous value)
+Retention: weekly report becomes owner ritual; switching cost compounds
 ```
 
 ---
 
 ## 9. Current Status & Traction
 
-### Latest Health Check — April 23, 2026
+### Latest Health Check — September 14, 2026
 
-**24/24 GREEN** — up from 19/24 (Apr 18). All scheduled workflows, API endpoints, and core features fully operational across both verticals.
+**21/24 GREEN on the restaurant vertical.** Post platform-simplification: 71 workflows deactivated, ~31 active. Focus is restaurant ops + Bridge capstone scrapers + Lovable infra.
 
 | Category | Status |
 |----------|--------|
-| API Endpoints | 15/15 green |
-| Scheduled Workflows | 9/9 green |
-| Core Feature Tests | 8/8 pass (Fashion + Restaurant) |
+| Restaurant API endpoints | Green |
+| Scheduled restaurant workflows | Green |
+| Broken (Sep 14) | 3 — Apify credit refill + IF type-mismatch in Follow-up Sequence |
 
 ### What's Built and Working
 
-- 41 production workflows — tested, error-handled, GDPR-compliant
-- 23 live API endpoints — 100% uptime on latest check
-- 14 AI agents — all accessible via web chat
-- 2 verticals — Fashion (primary) + Restaurant (secondary)
-- Complete booking system — Web + Voice + SMS for restaurants
-- **Stripe payments live** — three tiers, production credentials
-- Automated lead generation — daily cold outreach + weekly LinkedIn
-- Lead nurture — 3-email automated sequence
-- Weekly per-company digest — Monday 9AM
+- ~31 active workflows — restaurant vertical + Lovable infra (Stripe/checkout/auth/RGPD) + utils
+- Restaurant onboarding — one call: Notion CRM + Google Sheet + website scrape + GBP link
+- Full booking stack — web + SMS + optional voice (Vapi + Twilio)
+- Review Intelligence — daily reputation monitor + auto-response (Vera) + weekly PDF digest
+- Milo web chatbot — customer FAQ, menu, booking widget
+- **Stripe deactivated pending direct-sales pipeline** — capstone / early access clients onboarded manually with full access
 - **GDPR compliance** — consent, unsubscribe, data export/delete
-- Error monitoring — all 41 workflows wired to error notification
+- Error monitoring — all active workflows wired to error notification
 
 ### Development Velocity
 
@@ -552,10 +510,11 @@ Retention (Weekly Digest — continuous value)
 |--------|-----------|
 | Jan 2026 | Core platform (agents, chat, Notion CRM) |
 | Feb 2026 | Lovable frontend, Stripe billing, PDF reports |
-| Mar 2026 | Restaurant vertical, booking, voice agent, Stripe live, GDPR |
+| Mar 2026 | Restaurant vertical, booking, voice agent, GDPR |
 | Apr 2026 | Palomo Spain demos, cold outreach, system stabilization |
+| Sep 2026 | **Pivot** — retire marketing agents, retire fashion vertical, refocus on restaurant review intelligence + booking |
 
-**One developer built the equivalent of a 5-person engineering team's output in 4 months.**
+**One developer built and then focused the equivalent of a 5-person engineering team's output in 8 months.**
 
 ---
 
@@ -563,7 +522,7 @@ Retention (Weekly Digest — continuous value)
 
 ### Expansion Strategy
 
-- **Horizontal (verticals):** Fashion → Restaurant → Hotel → E-commerce → Real Estate → Professional Services
+- **Horizontal (future verticals — after restaurant depth):** Restaurant (now) → Hotel → Salón / Peluquería → Clínica dental → other neighborhood service SMEs
 - **Geographic:** Spain → LATAM → Portugal → Italy (Romance-language markets)
 - **Product:** SaaS → White-label → API → Marketplace → Digital products
 
@@ -617,7 +576,7 @@ Retention (Weekly Digest — continuous value)
 ### Founder-Market Fit
 
 - Technical founder who builds **and** understands marketing
-- Shipped entire verticals solo (fashion + restaurant in 4 months)
+- Shipped restaurant vertical solo (onboarding, review intelligence, voice booking, dashboard) in 8 months; pivoted focus from marketing-agent suite to review-intelligence SaaS Sep 2026
 - Deep understanding of Spanish SME market
 - Academic validation (Master's project on AI marketing framework)
 

@@ -4,6 +4,7 @@
 Portable — reference from any project, any environment, any conversation.
 
 > Last consolidated: **2026-09-14** (Pricing restructure — Madeja Pro €59 base + Madeja Voice €99 add-on; old 4-tier structure retired)
+> Last addition: **2026-09-22** — Vera AI Analyst dashboard chat shipped (§3, §9, §10). Rest of this doc not re-audited since Sep 14; some figures (workflow/endpoint counts, feature status) predate the Sep 16–22 security and dataset work — verify against `plan-and-open-items-sep20.md` before quoting numbers externally.
 > Maintainer: Giuseppe Tortorici
 > If facts conflict with reality, trust current code/data and update this doc.
 > **Canonical design tokens live in** [madeja_brand.py](../../.claude/skills/canvas-design/madeja_brand.py) — this doc mirrors that file, never overrides it.
@@ -32,7 +33,7 @@ Portable — reference from any project, any environment, any conversation.
 | Field | Value |
 |-------|-------|
 | **Company** | Madeja |
-| **B2B Persona** | **Vera** — AI reputation assistant who speaks to the *restaurant owner* (weekly report, review auto-response) |
+| **B2B Persona** | **Vera** — AI reputation assistant who speaks to the *restaurant owner* (weekly report, review auto-response, and — new Sep 22 — a live chat in the dashboard: "what changed, why, what should I do") |
 | **B2C Persona** | **Milo** — voice agent (Vapi + Twilio) + web chatbot for the owner's *customers* (24/7 bookings + FAQ) |
 | **Domain** | madeja.digital |
 | **App** | app.madeja.digital (Lovable frontend) |
@@ -164,6 +165,7 @@ Restaurant owners already do this work — checking reviews every morning, calli
 | **Weekly branded PDF report** | Delivered Monday 9AM to the owner. Executive summary, sentiment shift, competitor snapshot, action items — all in Madeja brand. |
 | **Reputation monitor** | Daily 8AM silent scan across all review platforms. Alerts only when negative or new reviews appear — no digest fatigue. |
 | **Vera — auto-response** | AI drafts + posts replies to Google Business Profile reviews in the owner's tone every 2h. Owner can review-and-approve or full-auto. |
+| **Vera — AI analyst chat** *(new Sep 22 2026)* | Chat panel in the dashboard, grounded only in the restaurant's own stored reviews and barrio benchmark — answers "what changed and why," peer comparison, and "what are people saying." States its evidence base and flags when the sample is thin; never invents facts. Built as a LangGraph agent (Railway) behind an n8n proxy so the browser never holds a Vera key. |
 
 #### Bookings & Customer Ops
 
@@ -499,6 +501,7 @@ Retention: weekly report becomes owner ritual; switching cost compounds
 - Restaurant onboarding — one call: Notion CRM + Google Sheet + website scrape + GBP link
 - Full booking stack — web + SMS + optional voice (Vapi + Twilio)
 - Review Intelligence — daily reputation monitor + auto-response (Vera) + weekly PDF digest
+- **Vera AI Analyst chat** *(Sep 22 2026)* — owner asks free-text questions in the dashboard, answered from the restaurant's own reviews + barrio benchmark; live on Railway + n8n, confirmed working end-to-end from the real dashboard
 - Milo web chatbot — customer FAQ, menu, booking widget
 - **Stripe deactivated pending direct-sales pipeline** — capstone / early access clients onboarded manually with full access
 - **GDPR compliance** — consent, unsubscribe, data export/delete
@@ -533,6 +536,7 @@ Retention: weekly report becomes owner ritual; switching cost compounds
 | Product | Build Time | Price | Target |
 |---------|-----------|-------|--------|
 | Google Review Auto-Responder | DONE | Included in Pro | All clients |
+| Vera AI Analyst (dashboard chat) | **DONE (Sep 22)** | Included in Pro | All clients |
 | Booking Confirmation Bot | BUILT | Included in Pro | Restaurants w/ Calendar |
 | Cold Outreach Personalization | 1 day | €0.50–2/prospect or €299/mo | B2B services |
 | AI Support Chatbot (RAG) | 3–5 days | Setup €500–2,000 + €99–299/mo | Any vertical |
@@ -607,8 +611,9 @@ Retention: weekly report becomes owner ritual; switching cost compounds
 ### In user-level memory (`~/.claude/projects/.../memory/`)
 - `madeja-offering.md` — offering summary
 - `madeja-config.md` — config/tech details
-- `health-check-apr23.md` — latest health check
+- `health-check-apr23.md` — health check (superseded by `plan-and-open-items-sep20.md` — read that first)
 - `investor-brief-apr18.md` — investor briefing session notes
+- `vera-analyst-plan.md` — Vera AI Analyst build log: architecture, Railway deployment, n8n proxy, tests
 
 ---
 
